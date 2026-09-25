@@ -1,6 +1,6 @@
 const knex = require('knex');
 const { currentDT, copyObj } = require("../util/common.util");
-//https://api.studyindiascholarship.com/adminer.php
+
 class db {
     static knex;
 

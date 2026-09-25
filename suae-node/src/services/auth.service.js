@@ -46,7 +46,8 @@ class AuthService {
         }
 
         usrDtl.token = createJwtToken({ id: usrDtl.id });
-        usrDtl.phptoken = await this.generatePhpToken({ id: usrDtl.id, role_id: usrDtl.role_id });
+        usrDtl.nodetoken = usrDtl.token;
+        usrDtl.phptoken = usrDtl.token;
         return usrDtl;
     }
 }

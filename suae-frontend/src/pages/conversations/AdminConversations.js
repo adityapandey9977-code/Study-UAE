@@ -186,11 +186,10 @@ export default function AdminConversations() {
               style={{ height: 36, maxWidth: 260, width: "100%" }}
               onError={(e) => {
                 const target = e.target;
-                const current = target.src;
-                if (current.includes("localhost:") || current.includes("127.0.0.1:")) {
-                  target.src = current.replace(/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?/, "https://suae-node.questdigiflex.com");
-                } else if (current.includes("suae-node.questdigiflex.com")) {
-                  target.src = current.replace("https://suae-node.questdigiflex.com", "https://suae-php.questdigiflex.com");
+                if (!target.dataset.triedGeneric) {
+                  target.dataset.triedGeneric = "true";
+                  const filename = filePath.split("/").pop();
+                  target.src = `${getNodeOrigin()}/uploads/files/${filename}`;
                 }
               }}
             >
@@ -213,15 +212,12 @@ export default function AdminConversations() {
               onClick={() => window.open(filePath, "_blank")}
               onError={(e) => {
                 const target = e.target;
-                const current = target.src;
-                if (current.includes("localhost:") || current.includes("127.0.0.1:")) {
-                  target.src = current.replace(/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?/, "https://suae-node.questdigiflex.com");
-                } else if (current.includes("suae-node.questdigiflex.com")) {
-                  target.src = current.replace("https://suae-node.questdigiflex.com", "https://suae-php.questdigiflex.com");
-                } else if (!target.dataset.triedGeneric) {
+                if (!target.dataset.triedGeneric) {
                   target.dataset.triedGeneric = "true";
                   const filename = filePath.split("/").pop();
-                  target.src = `https://suae-php.questdigiflex.com/uploads/files/${filename}`;
+                  target.src = `${getNodeOrigin()}/uploads/files/${filename}`;
+                } else {
+                  target.style.display = "none";
                 }
               }}
             />

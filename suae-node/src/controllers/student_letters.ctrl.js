@@ -145,10 +145,14 @@ class StudentLettersCtrl {
             console.log(`File not found locally (${fullPath}), attempting to proxy from PHP backend for download`);
             
             const fileName = path.basename(meta.relative_path);
-            let phpBaseUrl = (process.env.PHP_API_ENDPOINT || 'https://suae-php.questdigiflex.com').replace(/\/+$/, '');
+            let phpBaseUrl = (process.env.PHP_API_ENDPOINT || '').replace(/\/+$/, '');
+            if (!phpBaseUrl) {
+                const kindLabel = kind.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                return res.status(404).json({ 
+                    message: `${kindLabel} file not found. It may not have been uploaded yet.`
+                });
+            }
             const phpFileUrl = `${phpBaseUrl}/uploads/files/${fileName}`;
-            
-            console.log('Proxying download from:', phpFileUrl);
             
             const https = require('https');
             const http = require('http');
@@ -248,10 +252,14 @@ class StudentLettersCtrl {
             console.log(`File not found locally (${fullPath}), attempting to proxy from PHP backend`);
             
             const fileName = path.basename(meta.relative_path);
-            let phpBaseUrl = (process.env.PHP_API_ENDPOINT || 'https://suae-php.questdigiflex.com').replace(/\/+$/, '');
+            let phpBaseUrl = (process.env.PHP_API_ENDPOINT || '').replace(/\/+$/, '');
+            if (!phpBaseUrl) {
+                const kindLabel = kind.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                return res.status(404).json({ 
+                    message: `${kindLabel} file not found. It may not have been uploaded yet.`
+                });
+            }
             const phpFileUrl = `${phpBaseUrl}/uploads/files/${fileName}`;
-            
-            console.log('Proxying file from:', phpFileUrl);
             
             const https = require('https');
             const http = require('http');

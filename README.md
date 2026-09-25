@@ -172,10 +172,14 @@ npm run dev
 
 ## 🎯 Interview Highlights & Technical Discussion Points
 
-- **Monorepo Separation of Concerns**: Clear demarcation between customer-facing acquisition (Vite SSR/SPA website), enterprise application portal (React + Ant Design), and resilient micro-service backend (Node + Express + Socket.io).
-- **Zero-Downtime Socket Architecture**: Centralized connection management with real-time peer negotiation for instant counselor-student chat and audio calling.
-- **Dynamic Form Engine**: Schema-driven form rendering that persists dynamic metadata into MySQL JSON columns, eliminating the need for schema migrations for every new marketing campaign.
-- **Cloud-Native Deployment**: Configuration decoupled via 12-factor application principles with automated reverse-proxy SSL termination and environment parity across local and production.
+- **Legacy-to-Modern Backend Consolidation (Strangler Fig Pattern)**:
+  - Systematically phased out legacy monolith endpoints and consolidated 100% of services into an asynchronous, non-blocking Node.js/Express service.
+  - Implemented unified JWT authentication, eliminating dual-token state across legacy and modern services.
+  - Engineered backward-compatible shims for multipart form-data, automated schema introspection, and dynamic query generation with Knex.js.
+- **Monorepo Separation of Concerns**: Clear demarcation between customer-facing acquisition (Vite SPA website), enterprise application portal (React + Ant Design), and resilient real-time microservice backend (Node + Express + Socket.io).
+- **High-Concurrency Real-Time Socket Architecture**: Centralized connection management with room multiplexing and heartbeat ping-pong for instant counselor-student chat and audio calling.
+- **Dynamic Schema-Driven Form & Lead Engine**: Schema-driven form rendering that persists dynamic metadata into MySQL JSON columns, complete with self-hosted SVG CAPTCHA verification and mobile OTP validation.
+- **Cloud-Native 12-Factor Deployment**: Decoupled environment configuration for zero-friction containerized deployment on Render and edge deployment on Vercel with automated SSL and SPA routing.
 
 ---
 

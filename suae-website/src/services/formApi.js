@@ -1,7 +1,5 @@
-const API_BASE_URL =
-  import.meta.env.DEV
-    ? "/php-api/api/form"
-    : "https://suae-php.questdigiflex.com/api/form";
+const nodeApiBase = (import.meta.env.VITE_NODE_API_URL || "http://localhost:5000").replace(/\/$/, "");
+const API_BASE_URL = `${nodeApiBase}/api/form`;
 
 export class FormApiError extends Error {
   constructor(

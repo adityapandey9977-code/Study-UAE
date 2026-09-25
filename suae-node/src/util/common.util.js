@@ -279,7 +279,7 @@ exports.sendSms = async (mob, sms) => {
 exports.buildFileUrl = (fileId, fileInfo = null) => {
     if (!fileId) return null;
     
-    const baseUrl = process.env.BASE_URL || 'https://sisnode.questdigiflex.in/';
+    const baseUrl = process.env.BASE_URL || 'http://localhost:5000/';
     
     // If we have file info with name and created date, build the full path
     if (fileInfo && fileInfo.file_name && fileInfo.created) {

@@ -119,7 +119,8 @@ function IframeFormMonitor({ content }) {
   }, []);
 
   useEffect(() => {
-    const iframes = document.querySelectorAll('iframe[src*="suae-php.questdigiflex.com/form/embed/"]');
+    const nodeUrl = (import.meta.env.VITE_NODE_API_URL || "http://localhost:5000").replace(/\/$/, "");
+    const iframes = document.querySelectorAll('iframe[src*="/form/embed/"]');
 
     iframes.forEach(async (iframe) => {
       try {
@@ -131,7 +132,7 @@ function IframeFormMonitor({ content }) {
 
         const slug = matches[1];
 
-        const response = await fetch(`https://suae-php.questdigiflex.com/api/form/slug/${slug}`);
+        const response = await fetch(`${nodeUrl}/api/form/slug/${slug}`);
         const data = await response.json();
 
         if (data && !data.status) {

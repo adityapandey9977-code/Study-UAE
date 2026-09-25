@@ -6,45 +6,10 @@ export default defineConfig({
 
   server: {
     proxy: {
-      "/php-api": {
-        target:
-          "https://suae-php.questdigiflex.com",
+      "/api": {
+        target: process.env.VITE_NODE_API_URL || "http://localhost:5000",
         changeOrigin: true,
-        secure: true,
-
-        rewrite: (path) =>
-          path.replace(/^\/php-api/, ""),
-
-        configure: (proxy) => {
-          proxy.on(
-            "proxyReq",
-            (proxyRequest) => {
-              proxyRequest.setHeader(
-                "Accept",
-                "application/json"
-              );
-            }
-          );
-
-          proxy.on(
-            "proxyRes",
-            (proxyResponse, request) => {
-              console.log(
-                `[PHP API] ${request.method} ${request.url} -> ${proxyResponse.statusCode}`
-              );
-            }
-          );
-
-          proxy.on(
-            "error",
-            (error, request) => {
-              console.error(
-                `[PHP API ERROR] ${request.method} ${request.url}`,
-                error.message
-              );
-            }
-          );
-        }
+        secure: false,
       }
     }
   }

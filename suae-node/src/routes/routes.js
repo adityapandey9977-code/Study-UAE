@@ -52,6 +52,7 @@ router.get('/s/:code', async (req, res) => {
 });
 
 router.use('/', authRoutes);
+router.use('/', require('./legacy_compat.routes'));
 
 router.use(initialSetup);
 
@@ -65,7 +66,9 @@ router.use((req, res, next) => {
         originalUrl === '/login' ||
         originalUrl === '/studentLoginWithOtp' ||
         originalUrl === '/forgotpassword' ||
-        originalUrl === '/resetpssword';
+        originalUrl === '/resetpssword' ||
+        originalUrl.startsWith('/cmaster') ||
+        originalUrl.startsWith('/api/form');
 
     if (originalUrl === '/public' || originalUrl.startsWith('/public/') || isPublicAuthRoute) {
         return next();

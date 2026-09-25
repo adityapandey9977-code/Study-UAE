@@ -510,22 +510,24 @@ export default function FormWidgets({ onBack }) {
   const getEmbedCodes = (w, type = 'thankyou') => {
     if (!w) return { jsShort: '', iframeShort: '' };
     const slug = w.form_slug;
+    const apiOrigin = (util && util.apiUrlNode ? util.apiUrlNode : window.location.origin).replace(/\/+$/, '');
+    const panelOrigin = window.location.origin;
     const redirectUrl = type === 'thankyou' 
-      ? 'https://suae.questdigiflex.com/thank-you' 
-      : 'https://suae-panel.questdigiflex.com/student-login';
-    const jsShort = `<div class="suae-dynamic-form" data-slug="${slug}"></div><script src="https://suae-php.questdigiflex.com/theme/js/form-embed.js"></script>`;
+      ? `${panelOrigin}/thank-you` 
+      : `${panelOrigin}/student-login`;
+    const jsShort = `<div class="suae-dynamic-form" data-slug="${slug}"></div>\n<script src="${apiOrigin}/theme/js/form-embed.js"></script>`;
     
     let iframeShort;
     if (type === 'login') {
-      iframeShort = `<iframe src="https://suae-php.questdigiflex.com/form/embed/${slug}" width="100%" height="600" frameborder="0" style="border:none;"></iframe>`;
+      iframeShort = `<iframe src="${apiOrigin}/api/form/embed/${slug}" width="100%" height="600" frameborder="0" style="border:none;"></iframe>`;
     } else if (type === 'dynamic_height') {
-      iframeShort = `<iframe src="https://suae-php.questdigiflex.com/form/embed/${slug}" class="suae-iframe-embed" data-slug="${slug}" width="100%" height="600" frameborder="0" style="border:none;"></iframe>\n \n<script>\nwindow.addEventListener("message", function(e) {\n    if (e.data && e.data.type === "suae-form-resize") {\n        var iframes = document.querySelectorAll("iframe");\n        for (var i = 0; i < iframes.length; i++) {\n            var iframe = iframes[i];\n            if (iframe.src.indexOf("/form/embed/" + e.data.slug) !== -1 || iframe.getAttribute("data-slug") === e.data.slug) {\n                iframe.style.height = e.data.height + "px";\n            }\n        }\n    }\n});\n</script>`;
+      iframeShort = `<iframe src="${apiOrigin}/api/form/embed/${slug}" class="suae-iframe-embed" data-slug="${slug}" width="100%" height="600" frameborder="0" style="border:none;"></iframe>\n \n<script>\nwindow.addEventListener("message", function(e) {\n    if (e.data && e.data.type === "suae-form-resize") {\n        var iframes = document.querySelectorAll("iframe");\n        for (var i = 0; i < iframes.length; i++) {\n            var iframe = iframes[i];\n            if (iframe.src.indexOf("/form/embed/" + e.data.slug) !== -1 || iframe.getAttribute("data-slug") === e.data.slug) {\n                iframe.style.height = e.data.height + "px";\n            }\n        }\n    }\n});\n</script>`;
     } else if (type === 'js_code') {
       iframeShort = jsShort;
     } else if (type === 'js_code_thankyou') {
-      iframeShort = `<div class="suae-dynamic-form" data-slug="${slug}" data-redirect-url="https://suae.questdigiflex.com/thank-you"></div><script src="https://suae-php.questdigiflex.com/theme/js/form-embed.js"></script>`;
+      iframeShort = `<div class="suae-dynamic-form" data-slug="${slug}" data-redirect-url="${panelOrigin}/thank-you"></div>\n<script src="${apiOrigin}/theme/js/form-embed.js"></script>`;
     } else {
-      iframeShort = `<iframe src="https://suae-php.questdigiflex.com/form/embed/${slug}?redirect_url=${redirectUrl}" width="100%" height="600" frameborder="0" style="border:none;"></iframe>`;
+      iframeShort = `<iframe src="${apiOrigin}/api/form/embed/${slug}?redirect_url=${redirectUrl}" width="100%" height="600" frameborder="0" style="border:none;"></iframe>`;
     }
     return { jsShort, iframeShort };
   };
@@ -1814,8 +1816,8 @@ export default function FormWidgets({ onBack }) {
                     color: '#334155'
                   }}
                 >
-                  <option value="thankyou">Thank You Page (https://suae.questdigiflex.com/thank-you)</option>
-                  <option value="login">Student Login Page (https://suae-panel.questdigiflex.com/student-login)</option>
+                  <option value="thankyou">Thank You Page (/thank-you)</option>
+                  <option value="login">Student Login Page (/student-login)</option>
                   <option value="dynamic_height">Dynamic Height Form</option>
                   <option value="js_code">JS Code Option</option>
                   <option value="js_code_thankyou">JS Code with Thank You redirect</option>
