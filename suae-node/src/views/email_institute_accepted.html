@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Accepted</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style type="text/css">
+        body {
+            font-size: 13px;
+        }
+
+        th,
+        td {
+            vertical-align: middle !important;
+            font-size: 13px;
+        }
+
+        .head,
+        th.head {
+            font-size: 14px;
+            background: #f1f1f1 !important;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width:100%; background: #f3f2f0;">
+        <div style="padding: 10px 24px">
+            <div class="shadow-sm" style="width:75%; max-width: 700px; margin: 0 auto; background: #fff;">
+                <div style="background: #252f3d; text-align: center; padding: 10px 0 6px 0;">
+                    <img src="http://localhost:3001/theme/img/sis-logo.png" height="53px" />
+                </div>
+                <div style="padding: 20px">
+                    Dear <%= stu.name%>,
+                    <p>
+                        You have been selected by <%= course.institute_name%>. for admission to Study In India via Study India Scholarship programme. 
+                        You will receive an Offer Letter Shortly from the Institute. We will notify you once your offer letter will be uploaded.
+                        You can login here <%= stu.login_url%> to check the application progress.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

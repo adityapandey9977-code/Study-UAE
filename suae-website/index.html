@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <meta
+      name="description"
+      content="Study in UAE Scholarship helps students explore top universities, career-led programs, and guided admissions across Dubai, Abu Dhabi, Sharjah, and beyond."
+    />
+    <title>Study in UAE Scholarship</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      (function() {
+        let timer = null;
+        const observer = new MutationObserver(() => {
+          const placeholders = document.querySelectorAll('.suae-dynamic-form:not([data-observing="true"])');
+          if (placeholders.length > 0) {
+            placeholders.forEach(el => el.setAttribute('data-observing', 'true'));
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+              const existing = document.querySelector('script[src*="form-embed.js"]');
+              if (existing) existing.remove();
+              
+              const script = document.createElement('script');
+              script.src = "https://suae-php.questdigiflex.com/theme/js/form-embed.js";
+              script.async = true;
+              document.body.appendChild(script);
+            }, 50);
+          }
+        });
+        observer.observe(document.documentElement, { childList: true, subtree: true });
+      })();
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

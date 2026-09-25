@@ -1,0 +1,49 @@
+# ==========================================
+# Root .gitignore for Study UAE Project
+# ==========================================
+
+# Dependencies
+node_modules/
+**/node_modules/
+package-lock.json
+**/package-lock.json
+
+# Environment and Secret Files
+.env
+.env.*
+**/.env
+**/.env.*
+!**/.env.example
+
+# Production Builds
+dist/
+build/
+**/dist/
+**/build/
+
+# Uploads & User Generated Content
+**/uploads/*
+!**/uploads/.gitkeep
+
+# SSL Certificates and Keys
+**/ssl/
+*.pem
+*.key
+*.crt
+*.csr
+
+# Logs & Debugging
+logs/
+*.log
+**/*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System & Editor Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.user

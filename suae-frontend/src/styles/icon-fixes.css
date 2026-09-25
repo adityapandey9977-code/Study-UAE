@@ -1,0 +1,392 @@
+/* ========================================
+   ICON ALIGNMENT & DESIGN FIXES
+   ======================================== */
+
+/* ==========================================
+   1. BUTTON ICON ALIGNMENT
+   ========================================== */
+
+/* Fix for buttons with icons - ensure icons are vertically centered */
+.ant-btn > i,
+.btn > i {
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1;
+}
+
+/* Ant Design Button with icon prop - center alignment */
+.ant-btn .anticon {
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Button with icon and text - proper spacing and alignment */
+.ant-btn > i + span,
+.btn > i + span {
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+/* Icon-only buttons - perfect centering */
+.ant-btn:not(:has(span:not(:empty))),
+.btn:not(:has(span:not(:empty))) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ant Design icon prop buttons */
+.ant-btn > .anticon + span {
+  margin-left: 8px;
+}
+
+/* Fix for FontAwesome icons in buttons */
+.ant-btn .fa,
+.ant-btn .fas,
+.ant-btn .far,
+.ant-btn .fal,
+.ant-btn .fab,
+.btn .fa,
+.btn .fas,
+.btn .far,
+.btn .fal,
+.btn .fab {
+  vertical-align: middle;
+  line-height: 1;
+  display: inline-block;
+}
+
+/* Button Group icon alignment */
+.ant-btn-group .ant-btn > i,
+.ant-btn-group .ant-btn .anticon {
+  vertical-align: middle;
+}
+
+/* Small button icon adjustments */
+.ant-btn-sm > i,
+.ant-btn-sm .anticon,
+.btn-sm > i {
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+/* Large button icon adjustments */
+.ant-btn-lg > i,
+.ant-btn-lg .anticon,
+.btn-lg > i {
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+/* ==========================================
+   2. TOAST/MESSAGE ICON FIXES
+   ========================================== */
+
+/* Ant Design Message/Notification icons - proper alignment */
+.ant-message .anticon {
+  vertical-align: middle !important;
+  top: 0 !important;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Ensure message notice content is aligned */
+.ant-message-notice-content {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Success message icon - use correct icon */
+.ant-message-success .anticon {
+  color: #52c41a;
+}
+
+/* Error message icon */
+.ant-message-error .anticon {
+  color: #ff4d4f;
+}
+
+/* Warning message icon */
+.ant-message-warning .anticon {
+  color: #faad14;
+}
+
+/* Info message icon */
+.ant-message-info .anticon {
+  color: #1890ff;
+}
+
+/* Notification icons */
+.ant-notification .anticon {
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  font-size: 24px;
+  line-height: 1;
+}
+
+/* ==========================================
+   3. FORGOT PASSWORD SUCCESS ICON FIX
+   ========================================== */
+
+/* Replace emoji with proper icon in forgot password success */
+.forgot-password-success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #f6ffed;
+  border: 2px solid #52c41a;
+  margin: 0 auto 16px;
+}
+
+.forgot-password-success-icon .anticon {
+  font-size: 28px;
+  color: #52c41a;
+}
+
+/* ==========================================
+   4. VIEW & DOWNLOAD BUTTON ICON FIXES
+   ========================================== */
+
+/* Ensure EyeOutlined and DownloadOutlined are properly aligned */
+.ant-btn .anticon-eye,
+.ant-btn .anticon-download,
+.ant-btn .anticon-upload,
+.ant-btn .anticon-check-circle {
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Link buttons with icons */
+.ant-btn-link .anticon {
+  vertical-align: middle;
+}
+
+/* ==========================================
+   5. TABLE ACTION BUTTON ICONS
+   ========================================== */
+
+/* Table action buttons - perfect icon centering */
+.ant-table .ant-btn > i,
+.ant-table .ant-btn .anticon {
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* Button group in tables */
+.ant-table .ant-btn-group .ant-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================
+   6. CUSTOM PILL BUTTON ICON ALIGNMENT
+   ========================================== */
+
+/* Pill buttons with icons */
+.pill-btn > i,
+.pill-btn .anticon {
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1;
+}
+
+.pill-btn > i + span {
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* ==========================================
+   7. MODAL & DRAWER ICON FIXES
+   ========================================== */
+
+/* Modal header icons */
+.ant-modal-header .anticon,
+.ant-drawer-header .anticon {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* Modal footer button icons */
+.ant-modal-footer .ant-btn > i,
+.ant-modal-footer .ant-btn .anticon {
+  vertical-align: middle;
+}
+
+/* ==========================================
+   8. INPUT AFFIX ICON ALIGNMENT
+   ========================================== */
+
+/* Input prefix/suffix icons */
+.ant-input-prefix .anticon,
+.ant-input-suffix .anticon {
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ==========================================
+   9. DROPDOWN & SELECT ICON FIXES
+   ========================================== */
+
+/* Dropdown menu item icons */
+.ant-dropdown-menu-item .anticon {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* Select dropdown icons */
+.ant-select-item .anticon {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* ==========================================
+   10. GENERAL ICON UTILITIES
+   ========================================== */
+
+/* Icon spacing utilities */
+.icon-mr-sm {
+  margin-right: 4px;
+}
+
+.icon-mr {
+  margin-right: 8px;
+}
+
+.icon-mr-lg {
+  margin-right: 12px;
+}
+
+.icon-ml-sm {
+  margin-left: 4px;
+}
+
+.icon-ml {
+  margin-left: 8px;
+}
+
+.icon-ml-lg {
+  margin-left: 12px;
+}
+
+/* Icon size utilities */
+.icon-xs {
+  font-size: 10px;
+}
+
+.icon-sm {
+  font-size: 12px;
+}
+
+.icon-md {
+  font-size: 14px;
+}
+
+.icon-lg {
+  font-size: 18px;
+}
+
+.icon-xl {
+  font-size: 24px;
+}
+
+/* Icon vertical alignment utilities */
+.icon-v-middle {
+  vertical-align: middle !important;
+}
+
+.icon-v-top {
+  vertical-align: top !important;
+}
+
+.icon-v-bottom {
+  vertical-align: bottom !important;
+}
+
+/* ==========================================
+   11. RESPONSIVE ICON ADJUSTMENTS
+   ========================================== */
+
+@media (max-width: 768px) {
+  /* Smaller icons on mobile for better spacing */
+  .ant-btn .anticon {
+    font-size: 14px;
+  }
+  
+  .ant-btn-sm .anticon {
+    font-size: 12px;
+  }
+  
+  /* Adjust notification icons on mobile */
+  .ant-notification .anticon {
+    font-size: 20px;
+  }
+}
+
+/* ==========================================
+   12. SPECIFIC COMPONENT FIXES
+   ========================================== */
+
+/* Fix for upload button icons */
+.ant-upload-select .ant-btn .anticon {
+  vertical-align: middle;
+}
+
+/* Fix for pagination icons */
+.ant-pagination .anticon {
+  vertical-align: middle;
+}
+
+/* Fix for breadcrumb icons */
+.ant-breadcrumb .anticon {
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+/* Fix for tag icons */
+.ant-tag .anticon {
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+/* Fix for alert icons */
+.ant-alert .anticon {
+  vertical-align: middle;
+}
+
+/* Fix for steps icons */
+.ant-steps-item-icon .anticon {
+  vertical-align: middle;
+}
+
+/* ==========================================
+   13. LEGACY ICON FIXES (FontAwesome)
+   ========================================== */
+
+/* Ensure all FontAwesome icons are properly aligned */
+i.fa,
+i.fas,
+i.far,
+i.fal,
+i.fab {
+  vertical-align: middle;
+  line-height: 1;
+  display: inline-block;
+}
+
+/* FontAwesome in flex containers */
+.d-flex i.fa,
+.d-flex i.fas,
+.d-flex i.far,
+.d-flex i.fal,
+.d-flex i.fab {
+  align-self: center;
+}

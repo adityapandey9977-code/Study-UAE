@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<base href="%PUBLIC_URL%/" />
+	<link rel="icon" id="favicon" href="favicon.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.15.1/css/pro.min.css" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.3.0/font-awesome-animation.min.css" integrity="sha512-Po8rrCwchD03Wo+2ibHFielZ8luDAVoCyE9i6iFMPyn9+V1tIhGk5wl8iKC9/JfDah5Oe9nV8QzE8HHgjgzp3g==" crossorigin="anonymous" />
+ -->
+	<!-- <script src="https://kit.fontawesome.com/fd1e57381f.js" crossorigin="anonymous"></script> -->
+	<style>
+		@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css);
+	</style>
+	<link rel="stylesheet" href="theme/bootstrap/css/bootstrap.min.css">
+	<link href="theme/css/google.fonts.css" rel="stylesheet" />
+	<link href="theme/css/metronic.css" rel="stylesheet" />
+	<link href="theme/css/layouts/blue.min.css" rel="stylesheet" />
+	<link href="theme/css/login-4.css" rel="stylesheet" />
+	<script src="theme/js/jquery.js"></script>
+
+	<!-- Suppress ResizeObserver errors (benign warnings from UI libraries) -->
+	<script>
+		// Suppress ResizeObserver loop errors
+		window.addEventListener('error', function (e) {
+			if (e.message && e.message.includes('ResizeObserver loop')) {
+				e.stopImmediatePropagation();
+				e.preventDefault();
+				return true;
+			}
+		}, true);
+	</script>
+
+	<title>Study UAE Scholarship</title>
+</head>
+
+<body
+	class="page-header-fixed page-sidebar-closed-hide-logo page-sidebar-fixed page-content-white page-md h-100 page-sidebar-mobile-offcanvas">
+	<noscript>You need to enable JavaScript to run this app.</noscript>
+	<div id="root" class="parent h-100"></div>
+
+	<iframe id="iframe_print" style="display:none"></iframe>
+	<!--
+			This HTML file is a template.
+			If you open it directly in the browser, you will see an empty page.
+
+			You can add webfonts, meta tags, or analytics to this file.
+			The build step will place the bundled scripts into the <body> tag.
+
+			To begin the development, run `npm start` or `yarn start`.
+			To create a production bundle, use `npm run build` or `yarn build`.
+		-->
+
+	<script src="theme/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="theme/tinymce-new/js/tinymce/tinymce.min.js"></script>
+</body>
+
+</html>
